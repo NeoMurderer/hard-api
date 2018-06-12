@@ -1,0 +1,10 @@
+{
+  "ids": {
+    "Blog": 3
+  },
+  "models": {
+    "Blog": {
+      "2": "{\"name\":\"string\",\"isVisible\":true,\"id\":2}"
+    }
+  }
+}

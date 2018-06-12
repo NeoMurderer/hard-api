@@ -1,0 +1,65 @@
+{
+  "name": "hard-api",
+  "version": "1.0.0",
+  "description": "work",
+  "keywords": [
+    "loopback-application",
+    "loopback"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "npm run build:dist8 && npm run build:dist10",
+    "build:apidocs": "lb-apidocs",
+    "build:current": "lb-tsc",
+    "build:dist8": "lb-tsc es2017",
+    "build:dist10": "lb-tsc es2018",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean dist*",
+    "lint": "npm run prettier:check && npm run tslint",
+    "lint:fix": "npm run prettier:fix && npm run tslint:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "tslint": "lb-tslint",
+    "tslint:fix": "npm run tslint -- --fix",
+    "pretest": "npm run clean && npm run build:current",
+    "posttest": "npm run lint",
+    "prestart": "npm run build:current",
+    "start": "node .",
+    "prepublishOnly": "npm run test"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "",
+  "files": [
+    "README.md",
+    "index.js",
+    "index.d.ts",
+    "dist*/src",
+    "dist*/index*",
+    "src"
+  ],
+  "dependencies": {
+    "@loopback/authentication": "^0.10.9",
+    "@loopback/boot": "^0.10.9",
+    "@loopback/context": "^0.11.6",
+    "@loopback/core": "^0.8.8",
+    "@loopback/dist-util": "^0.3.2",
+    "@loopback/openapi-v3": "^0.10.9",
+    "@loopback/rest": "^0.11.3",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0"
+  },
+  "devDependencies": {
+    "@loopback/build": "^0.6.8",
+    "@loopback/testlab": "^0.10.7",
+    "@types/node": "^10.1.1",
+    "@types/passport": "^0.4.5",
+    "@types/passport-http": "^0.3.6"
+  }
+}
